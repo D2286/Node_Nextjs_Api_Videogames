@@ -1,0 +1,48 @@
+/* //import Navigation from "../componentes/Navigation";
+//import Container from "../componentes/Container"
+//import  {getItems}  from "../servicios.js/getItems";
+import Container from '../componentes/Container'
+import { useRouter } from "next/router";
+import Link from "next/link"
+//import Image from "next/image"
+import {getPathsFromIds, getItemData} from "./Paths.js"
+import Product from './Product';
+
+
+
+export default function users({productInfo}){
+
+    
+    return (
+
+        <Container>
+            <Product item={productInfo} shows="Page" />
+
+            </Container>  
+
+    )    
+}
+
+export async function getStaticPaths () {
+
+    const paths = await getPathsFromIds();
+    
+    return{
+            paths: paths,
+            fallback: false,
+
+    }
+        
+}
+
+export async function getStaticProps({ params }) {
+    const id = params.id;
+    const productInfo = await getItemData(id);
+  
+    return {
+      props: {
+        productInfo,
+      },
+    };
+  }   
+ */
